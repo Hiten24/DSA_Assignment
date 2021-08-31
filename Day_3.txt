@@ -1,0 +1,45 @@
+Insert a node to the end of the linked list
+
+Node* insertEnd(head, data){
+    Node* node = new(Node);
+    node-> data = data;
+    node -> next = NULL;
+    if(head){
+    Node* temp = head;
+    while(temp){
+        temp = temp->next;    
+    }
+    temp-> next = node;
+    return head;
+    
+    }else{
+        head = node;
+        return head;
+    }
+    
+}
+
+Delete a node from the end of a linked list
+
+Node* deleteEnd(head, data){
+    Node* node;
+    if(!head){
+	cout<<"Cannot delete, list is empty";
+	return head;
+    }else{
+        if(!head->next){
+            node = head;
+            head = NULL;
+        }else{
+        Node* temp = head;
+            while(temp->next){
+                temp = temp-> next;
+        }
+	node = temp;
+        temp-> next = NULL;
+
+        }
+        delete(node);
+        return head;        
+    }
+}
